@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: wezterm-config
+created: 2026-03-25T14:28:36-07:00
