@@ -1,0 +1,11 @@
+{
+  "name": "circuit_only",
+  "description": "Just circuit diagrams",
+  "canvas": {"width": 900, "height": 700, "background": "#ffffff"},
+  "sections": [
+    {"id": "title", "type": "text", "x": 50, "y": 30, "font_size": 28, "color": "#1a1a2e"},
+    {"id": "symbol", "type": "image", "x": 50, "y": 100, "max_width": 400, "label": {"x": 50, "y": 80, "text": "Gate Symbol", "font_size": 20, "color": "#1e40af"}},
+    {"id": "pinout", "type": "image", "x": 500, "y": 100, "max_width": 350, "label": {"x": 500, "y": 80, "text": "IC Pinout", "font_size": 20, "color": "#1e40af"}},
+    {"id": "breadboard", "type": "image", "x": 50, "y": 450, "max_width": 500, "label": {"x": 50, "y": 430, "text": "Breadboard", "font_size": 20, "color": "#1e40af"}}
+  ]
+}

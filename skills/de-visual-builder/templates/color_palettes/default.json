@@ -1,0 +1,18 @@
+{
+  "name": "Default Professional",
+  "primary": "#1e40af",
+  "secondary": "#7c3aed",
+  "accent": "#f59e0b",
+  "success": "#22c55e",
+  "error": "#dc2626",
+  "text": {
+    "title": "#1a1a2e",
+    "heading": "#1e40af",
+    "body": "#1e1e1e",
+    "muted": "#64748b"
+  },
+  "backgrounds": {
+    "canvas": "#ffffff",
+    "highlight": "#fef3c7"
+  }
+}

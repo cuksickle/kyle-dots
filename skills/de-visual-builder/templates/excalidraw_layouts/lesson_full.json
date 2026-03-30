@@ -1,0 +1,63 @@
+{
+  "name": "lesson_full",
+  "description": "Full lesson layout with symbol, timing, breadboard, and practice sections",
+  "canvas": {"width": 1200, "height": 1600, "background": "#ffffff"},
+  "sections": [
+    {
+      "id": "title",
+      "type": "text",
+      "x": 50, "y": 30,
+      "font_size": 32,
+      "color": "#1a1a2e"
+    },
+    {
+      "id": "subtitle",
+      "type": "text",
+      "x": 50, "y": 75,
+      "font_size": 18,
+      "color": "#64748b"
+    },
+    {
+      "id": "symbol",
+      "type": "image",
+      "x": 50, "y": 165,
+      "max_width": 350,
+      "label": {"x": 50, "y": 130, "text": "Circuit Symbol", "font_size": 22, "color": "#1e40af"}
+    },
+    {
+      "id": "pinout",
+      "type": "image",
+      "x": 480, "y": 165,
+      "max_width": 380,
+      "label": {"x": 480, "y": 130, "text": "IC Pinout", "font_size": 22, "color": "#1e40af"}
+    },
+    {
+      "id": "timing",
+      "type": "image",
+      "x": 50, "y": 450,
+      "max_width": 800,
+      "label": {"x": 50, "y": 415, "text": "Timing Diagram", "font_size": 22, "color": "#1e40af"}
+    },
+    {
+      "id": "comparison",
+      "type": "image",
+      "x": 50, "y": 750,
+      "max_width": 500,
+      "label": {"x": 50, "y": 715, "text": "Comparison", "font_size": 22, "color": "#1e40af"}
+    },
+    {
+      "id": "breadboard",
+      "type": "image",
+      "x": 600, "y": 750,
+      "max_width": 350,
+      "label": {"x": 600, "y": 715, "text": "Breadboard Wiring", "font_size": 22, "color": "#1e40af"}
+    },
+    {
+      "id": "practice",
+      "type": "image",
+      "x": 50, "y": 1100,
+      "max_width": 800,
+      "label": {"x": 50, "y": 1065, "text": "Practice Problem", "font_size": 22, "color": "#7c3aed"}
+    }
+  ]
+}

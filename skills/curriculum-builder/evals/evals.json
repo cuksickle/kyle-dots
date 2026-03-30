@@ -1,0 +1,35 @@
+{
+  "skill_name": "curriculum-builder",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build M08 — Secrets in the Rocks. It's 5 lessons about evidence for evolution with a forensic crime scene framing. NGSS: HS-LS4-1, HS-LS4-3, HS-LS4-6. Follow the handoff spec and build it properly — handouts first, overview last.",
+      "expected_output": "Complete M08 module with 5 lessons, 5 exit tickets with answer keys, transfer task, 5 handouts, and overview.md. All files follow the directory structure. All URLs verified. All timings sum to ≤53 min.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I need just the exit tickets for M07 — The Arms Race. There are 7 lessons. Each exit ticket should have 2-3 questions with answer keys and point values. Use the exit ticket template.",
+      "expected_output": "7 exit ticket files in modules/M07-arms-race/assessments/exit-tickets/, each with questions, answer keys, and point values aligned to lesson objectives.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "The M06 CRISPR module is missing a summative assessment. Create one — 10 multiple choice and 15 short answer with a complete answer key. Make sure the questions cover all 5 lessons.",
+      "expected_output": "summative-assessment.md in modules/M06-rewriting-life/assessments/ with 10 MC + 15 short answer, complete answer key with point values, covering CRISPR, gene editing ethics, and applications.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Can you audit the M07 arms race module? Check that all referenced files actually exist, all URLs load, and all timings are under 53 minutes. Run the verification script too.",
+      "expected_output": "Audit report listing: cross-reference check results, URL verification output, timing totals per lesson, and any gaps found.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Create a handout about molecular evidence for evolution — I need real cytochrome c amino acid sequences for 6 species that students can use to build a cladogram. This is for M08 L03.",
+      "expected_output": "A handout file in modules/M08-secrets-in-rocks/resources/handouts/ with real cytochrome c sequences for 6 species, comparison instructions, and cladogram-building guidance.",
+      "files": []
+    }
+  ]
+}

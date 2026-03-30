@@ -1,0 +1,30 @@
+{
+  "name": "Digital Electronics",
+  "signals": {
+    "clock": "#1e1e1e",
+    "data_input": "#2563eb",
+    "data_output": "#dc2626",
+    "high": "#22c55e",
+    "low": "#94a3b8",
+    "edge_marker": "#f59e0b"
+  },
+  "gates": {
+    "fill": "#f1f5f9",
+    "stroke": "#1e1e1e",
+    "label": "#1e1e1e",
+    "active_low_bubble": "#dc2626"
+  },
+  "text": {
+    "title": "#1a1a2e",
+    "section_header": "#1e40af",
+    "body": "#1e1e1e",
+    "annotation": "#475569",
+    "callout": "#dc2626",
+    "practice": "#7c3aed"
+  },
+  "backgrounds": {
+    "canvas": "#ffffff",
+    "callout_box": "#fef3c7",
+    "code_block": "#1e293b"
+  }
+}

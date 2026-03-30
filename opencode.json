@@ -1,0 +1,27 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "small_model": "openrouter/nvidia-nemotron-3-super:free",
+  "plugin": [
+    "oh-my-opencode-slim",
+    "opencode-skills",
+    "opencode-pty",
+    "opencode-md-table-formatter",
+    "opencode-dynamic-context-pruning",
+    "opencode-browser",
+    "opencode-tokenscope",
+    "opencode-workspace",
+    "octto",
+    "plannotator",
+    "opencode-background-agents",
+    "ralph-wiggum",
+    "opencode-synced"
+  ],
+  "agent": {
+    "explore": {
+      "disable": true
+    },
+    "general": {
+      "disable": true
+    }
+  }
+}

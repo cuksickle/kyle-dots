@@ -1,0 +1,11 @@
+{
+  "name": "comparison",
+  "description": "Side-by-side comparison layout",
+  "canvas": {"width": 1000, "height": 600, "background": "#ffffff"},
+  "sections": [
+    {"id": "title", "type": "text", "x": 50, "y": 30, "font_size": 28, "color": "#1a1a2e"},
+    {"id": "left", "type": "image", "x": 50, "y": 100, "max_width": 430, "label": {"x": 50, "y": 80, "text": "Option A", "font_size": 20, "color": "#1e40af"}},
+    {"id": "divider", "type": "divider", "x": 500, "y": 80, "height": 450},
+    {"id": "right", "type": "image", "x": 520, "y": 100, "max_width": 430, "label": {"x": 520, "y": 80, "text": "Option B", "font_size": 20, "color": "#1e40af"}}
+  ]
+}
