@@ -1,0 +1,590 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    "opencode-antigravity-auth@latest",
+    "@tarquinen/opencode-dcp@latest",
+    "opencode-mcp-tool-search@latest",
+    "opencode-firecrawl@latest",
+    "opencode-pty@latest",
+    "opencode-md-table-formatter@latest"
+  ],
+  "mcp": {
+    "nanobanana": {
+      "type": "local",
+      "command": [
+        "uv",
+        "--directory",
+        "/home/kyle/nanobanana-mcp-server",
+        "run",
+        "python",
+        "-m",
+        "nanobanana_mcp_server.server"
+      ],
+      "enabled": true,
+      "environment": {
+        "GEMINI_API_KEY": "{env:NANOBANANA_GEMINI_API_KEY}",
+        "FASTMCP_SHOW_CLI_BANNER": "false",
+        "LOG_LEVEL": "WARNING"
+      }
+    },
+    "notion-mcp-server": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@notionhq/notion-mcp-server"
+      ],
+      "enabled": true
+    },
+    "github-mcp-server": {
+      "enabled": false,
+      "type": "local",
+      "command": [
+        "docker",
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "ghcr.io/github/github-mcp-server"
+      ],
+      "environment": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "env:GITHUB_PERSONAL_ACCESS_TOKEN"
+      }
+    },
+    "kyle-utility-mcp": {
+      "type": "local",
+      "command": [
+        "python3",
+        "/home/kyle/git/kyle-utility-mcp/server.py"
+      ],
+      "enabled": false
+    },
+    "thinking-monolith": {
+      "type": "local",
+      "command": [
+        "npx",
+        "ts-node",
+        "--esm",
+        "/home/kyle/git/thinking-monolith-mcp/index.ts"
+      ],
+      "enabled": true
+    },
+    "pedagogy-mcp": {
+      "type": "local",
+      "command": [
+        "npx",
+        "tsx",
+        "/home/kyle/git/teaching/pedagogy-mcp/src/index.ts"
+      ],
+      "enabled": true,
+      "environment": {
+        "BASE_DIR": "/home/kyle/git/teaching/pedagogy-mcp"
+      }
+    },
+    "atlas-mcp": {
+      "type": "local",
+      "command": [
+        "/home/kyle/git/kyle-utility-mcp/venv/bin/python",
+        "/home/kyle/git/kyle-utility-mcp/server.py"
+      ],
+      "enabled": true,
+      "environment": {
+        "PATH": "/home/kyle/bin/go/bin:/usr/local/bin:/usr/bin:/bin",
+        "PYTHONPATH": "/home/kyle/git/external-knowledge/OpenViking"
+      }
+    },
+    "brainstorm-mcp": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "brainstorm-mcp"
+      ],
+      "enabled": true,
+      "environment": {
+        "OPENAI_API_KEY": "{env:OPENAI_API_KEY}"
+      }
+    },
+    "web-monolith": {
+      "type": "local",
+      "command": [
+        "node",
+        "/home/kyle/git/web-monolith-mcp/dist/index.js"
+      ],
+      "enabled": true
+    },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "specmatic-mcp": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "specmatic-mcp"
+      ],
+      "enabled": true
+    },
+    "obsidian-mcp": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@bitbonsai/mcpvault@latest",
+        "/home/kyle/Nextcloud/Documents/Obsidian Vault"
+      ],
+      "enabled": true
+    },
+    "notebooklm-mcp": {
+      "type": "local",
+      "command": [
+        "node",
+        "/home/kyle/git/external-knowledge/notebooklm-mcp/dist/index.js"
+      ],
+      "enabled": true,
+      "environment": {
+        "BROWSER_CHANNEL": "chrome"
+      }
+    },
+    "openspace": {
+      "type": "local",
+      "command": [
+        "openspace-mcp"
+      ],
+      "enabled": true,
+      "environment": {
+        "OPENSPACE_HOST_SKILL_DIRS": "/home/kyle/.config/opencode/skills",
+        "OPENSPACE_WORKSPACE": "/home/kyle/git/tools/OpenSpace"
+      }
+    }
+  },
+  "permission": {
+    "webfetch": "deny"
+  },
+  "provider": {
+    "google": {
+      "name": "Google",
+      "models": {
+        "antigravity-gemini-3.1-pro": {
+          "name": "Gemini 3.1 Pro (Antigravity)",
+          "limit": {
+            "context": 1048576,
+            "output": 65535
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "variants": {
+            "low": {
+              "thinkingLevel": "low"
+            },
+            "high": {
+              "thinkingLevel": "high"
+            }
+          }
+        },
+        "antigravity-gemini-3.1-flash": {
+          "name": "Gemini 3.1 Flash (Antigravity)",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "variants": {
+            "minimal": {
+              "thinkingLevel": "minimal"
+            },
+            "low": {
+              "thinkingLevel": "low"
+            },
+            "medium": {
+              "thinkingLevel": "medium"
+            },
+            "high": {
+              "thinkingLevel": "high"
+            }
+          }
+        },
+        "antigravity-claude-sonnet-4-6-thinking": {
+          "name": "Claude Sonnet 4.6 Thinking (Antigravity)",
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "variants": {
+            "low": {
+              "thinkingConfig": {
+                "thinkingBudget": 8192
+              }
+            },
+            "max": {
+              "thinkingConfig": {
+                "thinkingBudget": 32768
+              }
+            }
+          }
+        },
+        "antigravity-claude-opus-4-6-thinking": {
+          "name": "Claude Opus 4.6 Thinking (Antigravity)",
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "variants": {
+            "low": {
+              "thinkingConfig": {
+                "thinkingBudget": 8192
+              }
+            },
+            "max": {
+              "thinkingConfig": {
+                "thinkingBudget": 32768
+              }
+            }
+          }
+        },
+        "gemini-3-flash-preview": {
+          "name": "Gemini 3 Flash Preview (Gemini CLI)",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "gemini-3-pro-preview": {
+          "name": "Gemini 3 Pro Preview (Gemini CLI)",
+          "limit": {
+            "context": 1048576,
+            "output": 65535
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "gemini-1.5-pro": {
+          "name": "HIDDEN gemini-1.5-pro",
+          "enabled": false,
+          "hidden": true,
+          "limit": {
+            "context": 1,
+            "output": 1
+          }
+        },
+        "gemini-1.5-pro-latest": {
+          "name": "HIDDEN gemini-1.5-pro-latest",
+          "enabled": false,
+          "hidden": true,
+          "limit": {
+            "context": 1,
+            "output": 1
+          }
+        },
+        "gemini-1.5-pro-001": {
+          "name": "HIDDEN gemini-1.5-pro-001",
+          "enabled": false,
+          "hidden": true,
+          "limit": {
+            "context": 1,
+            "output": 1
+          }
+        },
+        "gemini-1.5-pro-002": {
+          "name": "HIDDEN gemini-1.5-pro-002",
+          "enabled": false,
+          "hidden": true,
+          "limit": {
+            "context": 1,
+            "output": 1
+          }
+        },
+        "gemini-1.5-flash": {
+          "name": "HIDDEN gemini-1.5-flash",
+          "enabled": false,
+          "hidden": true,
+          "limit": {
+            "context": 1,
+            "output": 1
+          }
+        },
+        "gemini-1.5-flash-latest": {
+          "name": "HIDDEN gemini-1.5-flash-latest",
+          "enabled": false,
+          "hidden": true,
+          "limit": {
+            "context": 1,
+            "output": 1
+          }
+        },
+        "gemini-1.5-flash-001": {
+          "name": "HIDDEN gemini-1.5-flash-001",
+          "enabled": false,
+          "hidden": true,
+          "limit": {
+            "context": 1,
+            "output": 1
+          }
+        },
+        "gemini-1.5-flash-002": {
+          "name": "HIDDEN gemini-1.5-flash-002",
+          "enabled": false,
+          "hidden": true,
+          "limit": {
+            "context": 1,
+            "output": 1
+          }
+        },
+        "gemini-1.5-flash-8b": {
+          "name": "HIDDEN gemini-1.5-flash-8b",
+          "enabled": false,
+          "hidden": true,
+          "limit": {
+            "context": 1,
+            "output": 1
+          }
+        },
+        "gemini-1.5-flash-8b-latest": {
+          "name": "HIDDEN gemini-1.5-flash-8b-latest",
+          "enabled": false,
+          "hidden": true,
+          "limit": {
+            "context": 1,
+            "output": 1
+          }
+        },
+        "gemini-1.5-flash-8b-exp-0827": {
+          "name": "HIDDEN gemini-1.5-flash-8b-exp-0827",
+          "enabled": false,
+          "hidden": true,
+          "limit": {
+            "context": 1,
+            "output": 1
+          }
+        },
+        "gemini-1.5-flash-8b-exp-0924": {
+          "name": "HIDDEN gemini-1.5-flash-8b-exp-0924",
+          "enabled": false,
+          "hidden": true,
+          "limit": {
+            "context": 1,
+            "output": 1
+          }
+        },
+        "gemini-2.0-flash": {
+          "name": "HIDDEN gemini-2.0-flash",
+          "enabled": false,
+          "hidden": true,
+          "limit": {
+            "context": 1,
+            "output": 1
+          }
+        },
+        "gemini-2.0-flash-exp": {
+          "name": "HIDDEN gemini-2.0-flash-exp",
+          "enabled": false,
+          "hidden": true,
+          "limit": {
+            "context": 1,
+            "output": 1
+          }
+        },
+        "gemini-2.0-pro-exp": {
+          "name": "HIDDEN gemini-2.0-pro-exp",
+          "enabled": false,
+          "hidden": true,
+          "limit": {
+            "context": 1,
+            "output": 1
+          }
+        },
+        "gemini-2.5-flash": {
+          "name": "HIDDEN gemini-2.5-flash",
+          "enabled": false,
+          "hidden": true,
+          "limit": {
+            "context": 1,
+            "output": 1
+          }
+        },
+        "gemini-2.5-pro": {
+          "name": "HIDDEN gemini-2.5-pro",
+          "enabled": false,
+          "hidden": true,
+          "limit": {
+            "context": 1,
+            "output": 1
+          }
+        }
+      },
+      "npm": "@ai-sdk/google"
+    },
+    "lmstudio": {
+      "name": "LM Studio",
+      "models": {
+        "zai-org/glm-4.6v-flash": {
+          "name": "Glm 4.6V Flash",
+          "limit": {
+            "context": 32768,
+            "output": 4096
+          }
+        },
+        "qwen/qwen3-coder-30b": {
+          "name": "Qwen3 Coder 30B",
+          "limit": {
+            "context": 32768,
+            "output": 4096
+          }
+        },
+        "zai-org/glm-4.7-flash": {
+          "name": "GLM 4.7 Flash",
+          "limit": {
+            "context": 131072,
+            "output": 4096
+          }
+        },
+        "qwen3-4b-z-image-turbo-abliteratedv1@q4_k_s": {
+          "name": "Qwen3 4B Z Image Turbo Abliteratedv1@Q4_K_S",
+          "limit": {
+            "context": 32768,
+            "output": 4096
+          }
+        },
+        "qwen3-4b-z-image-turbo-abliteratedv1@f16": {
+          "name": "Qwen3 4B Z Image Turbo Abliteratedv1@F16",
+          "limit": {
+            "context": 32768,
+            "output": 4096
+          }
+        },
+        "text-embedding-nomic-embed-text-v1.5": {
+          "name": "Text Embedding Nomic Embed Text V1.5",
+          "limit": {
+            "context": 32768,
+            "output": 4096
+          }
+        },
+        "magnum-v4-27b": {
+          "name": "Magnum v4 27B",
+          "limit": {
+            "context": 32768,
+            "output": 4096
+          }
+        }
+      }
+    },
+    "ollama": {
+      "name": "Ollama",
+      "models": {
+        "qwen3-vl:8b": {
+          "name": "Qwen3 Vl",
+          "limit": {
+            "context": 8192,
+            "output": 4096
+          }
+        },
+        "qwen3-embedding:8b": {
+          "name": "Qwen3 Embedding",
+          "limit": {
+            "context": 8192,
+            "output": 4096
+          }
+        },
+        "gemma3n:e4b": {
+          "name": "Gemma3N",
+          "limit": {
+            "context": 8192,
+            "output": 4096
+          }
+        },
+        "embeddinggemma:latest": {
+          "name": "Embeddinggemma",
+          "limit": {
+            "context": 8192,
+            "output": 4096
+          }
+        },
+        "all-minilm:latest": {
+          "name": "All Minilm",
+          "limit": {
+            "context": 8192,
+            "output": 4096
+          }
+        },
+        "llama3.2:1b": {
+          "name": "Llama3.2",
+          "limit": {
+            "context": 8192,
+            "output": 4096
+          }
+        },
+        "nomic-embed-text:latest": {
+          "name": "Nomic Embed Text",
+          "limit": {
+            "context": 8192,
+            "output": 4096
+          }
+        },
+        "magnum-v4-27b-q4_k_m:latest": {
+          "name": "Magnum V4 27B Q4_K_M",
+          "limit": {
+            "context": 8192,
+            "output": 4096
+          }
+        }
+      }
+    }
+  }
+}
